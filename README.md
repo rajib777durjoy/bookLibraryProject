@@ -19,5 +19,5 @@
   *react-countup
   *lottie-react
   *axios
-  6.
-  7. Github server link:https://github.com/rajib777durjoy/bookLibraryServer
+  6. Github Client side link:https://github.com/rajib777durjoy/bookLibraryProject
+  7. Github Server side link:https://github.com/rajib777durjoy/bookLibraryServer

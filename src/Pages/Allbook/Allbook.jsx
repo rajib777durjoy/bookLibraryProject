@@ -4,7 +4,7 @@ import React, { useEffect, useState } from 'react';
 import ReactStars from "react-rating-stars-component";
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
-
+import { motion } from "motion/react"
 
 const Allbook = () => {
     const [books, setbook] = useState([])
@@ -30,11 +30,11 @@ const Allbook = () => {
         <div className='w-[90%] mx-auto min-h-screen'>
             <div className='w-[100%] mt-2 mb-10 items-center grid grid-cols-3 gap-2 '>
                 <div className=' h-[50px] rounded-lg bg-slate-300  text-white '>
-                    <button onClick={handelFilter} className='w-[100%]  btn'>Filter quantity</button>
+                    <button onClick={handelFilter} className='w-[100%]  btn border-green-400'>Filter quantity</button>
                 </div>
                 <div className=''>
-                    <label className="input input-bordered flex items-center gap-2">
-                        <input onChange={(e)=>setsearchValue(e.target.value)} type="text" className="grow" placeholder="Search" />
+                    <label className="input border-green-400 input-bordered flex items-center gap-2">
+                        <input onChange={(e)=>setsearchValue(e.target.value)} type="text" className="grow " placeholder="Search" />
                         <svg
                             xmlns="http://www.w3.org/2000/svg"
                             viewBox="0 0 16 16"
@@ -48,7 +48,7 @@ const Allbook = () => {
                     </label>
                 </div>
                 <div className="dropdown dropdown-bottom">
-                    <div tabIndex={0} role="button" className="btn w-[100%] h-[50px] ">View Functionality</div>
+                    <div tabIndex={0} role="button" className="btn w-[100%] h-[50px]  border-green-400 ">View Functionality</div>
                     <ul tabIndex={0} className="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                         <li onClick={() => settoggle(true)}><a>Card View</a></li>
                         <li onClick={() => settoggle(false)}><a>Table View</a></li>
@@ -59,7 +59,7 @@ const Allbook = () => {
 
             <div className={`w-[100%] text-white my-2  gap-4  grid ${toggle && 'md:grid-cols-3 lg:grid-cols-4'}`}>
                 {
-                    books.map((book,index) => toggle ? <div key={book?._id} className="card h-[400px] card-compact bg-base-100 text-black shadow-xl">
+                    books.map((book,index) => toggle ? <motion.div key={book?._id} className="card h-[400px] card-compact bg-base-100 text-black shadow-xl">
                         <figure className='my-2'>
                             <img
                                 src={book?.image}
@@ -76,10 +76,10 @@ const Allbook = () => {
                                 edit={false}
                             /></h2>
                             <div className="card-actions justify-center my-4">
-                                <Link to={`/updatepage/${book?._id}`}><button className="btn btn-primary w-[100%]">Update</button></Link>
+                                <Link to={`/updatepage/${book?._id}`}><button className="btn bg-green-400 w-[100%]">Update</button></Link>
                             </div>
                         </div>
-                    </div> : <table className="table bg-base-200 text-black"><thead>
+                    </motion.div> : <table className="table bg-base-200 text-black"><thead>
                         <tr>
                             <th>
                                 <label>
